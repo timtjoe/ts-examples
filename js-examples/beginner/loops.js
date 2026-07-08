@@ -27,3 +27,25 @@ const langs = ["js", "go", "rust"];
 for (const lang of langs) {
   console.log(lang);
 }
+
+// Practice 
+/**
+ * Sum 1 to N 
+ * 
+ * Read a positive N. Print the sum of all integers from 1 to N inclusive.
+ * for N = 5, that's is 1+2+3+4+5 = 15
+ */
+
+// const n = 5;
+let sum = 0;
+for(i = 1; i <= 5; i++) {
+  sum += i;
+}
+
+console.log(`Sum: N = 5 = ${sum}`)
+
+// Using for...of to get both index and value of an array
+const arr = [1, 2, 3, 4];
+for(const [i, v] of arr.entries()) {
+  console.log(`index: ${i} value: ${v}`)
+}
