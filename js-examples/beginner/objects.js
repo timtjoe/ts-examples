@@ -67,10 +67,11 @@ const counter = {
 counter.increment();
 console.log(counter.get());
 
+//print how many distinct word appears
 const words = "the quick brown the".split(" ");
 const seen = {};
 for(const word of words) {
     seen[word] = true;
 }
 
-console.log(Object.keys(seen).length, seen)
+console.log(Object.keys(seen).length)
