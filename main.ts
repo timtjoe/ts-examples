@@ -1,11 +1,10 @@
-// class Stack<T> { ... }
+type ReadOnly<T> = {readonly [K in keyof T]: T[K]}
 
-const readline = require("readline");
-const rl = readline.createInterface({ input: process.stdin });
-rl.on("line", (line: string) => {
-    // const stack = new Stack<number>();
-    // line.split(" ").map(Number).forEach(n => stack.push(n));
-    // while (stack.size() > 0) console.log(stack.pop());
-    rl.close();
-});
-rl.on("close", () => process.exit(0));
+interface Counter {
+  count: number;
+  max: number;
+}
+
+// const c: ReadOnly<Counter> = { count: 0, max: 10 };
+const c: Counter = { count: 0, max: 10 };
+console.log(JSON.stringify(c));
