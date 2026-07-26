@@ -1,0 +1,42 @@
+{
+  "course": "typescript-intermediate",
+  "language": "typescript",
+  "language_id": 74,
+  "entrypoint": "main.ts",
+  "version": 1,
+  "content_hash": "66412bb9bb0e051e",
+  "lessons": [
+    {
+      "slug": "generics",
+      "tests_hash": "e8a200e2a60b"
+    },
+    {
+      "slug": "unions-narrowing",
+      "tests_hash": "bbe03b22b1fe"
+    },
+    {
+      "slug": "utility-types",
+      "tests_hash": "52bdcd3f7763"
+    },
+    {
+      "slug": "mapped-conditional",
+      "tests_hash": "1d3cf53a6db6"
+    },
+    {
+      "slug": "classes",
+      "tests_hash": "fa8f8850644f"
+    },
+    {
+      "slug": "modules",
+      "tests_hash": "6d55e38b1dd2"
+    },
+    {
+      "slug": "promises",
+      "tests_hash": "c303f07c0720"
+    },
+    {
+      "slug": "discriminated-unions",
+      "tests_hash": "67c72807e37e"
+    }
+  ]
+}
