@@ -1,14 +1,11 @@
 export {};
 
-// TODO: Define a type RestPath<R extends string> that produces
-// '/api/${R}' | '/api/${R}/:id'
-type RestPath<R extends string> = `/api/${R}` | `/api/${R}/:id`;
+// TODO: Define type Tail<T extends any[]> that returns T without its first element
+type Tail<T extends any[]> = T extends [any, ...infer Rest] ? Rest : never;
 
-// TODO: Define type Resource = 'users' | 'posts'
-type Resource = 'users' | 'posts';
+type Nums = [1, 2, 3, 4, 5];
+type T = Tail<Nums>;
 
-// TODO: Declare p1 and p2 constrained by RestPath<Resource>, then print them.
-const p1: RestPath<Resource> = '/api/users';
-const p2: RestPath<Resource> = '/api/posts/:id';
-console.log(p1);
-console.log(p2);
+// TODO: build const t: T = [2, 3, 4, 5] to prove it type-checks, then print t.join(" ")
+const t: T = [2, 3, 4, 5];
+console.log(t.join(' '));
