@@ -1,11 +1,24 @@
 export {};
 
-// TODO: Define type Tail<T extends any[]> that returns T without its first element
-type Tail<T extends any[]> = T extends [any, ...infer Rest] ? Rest : never;
+type Email = string & { readonly __brand: "Email" };
 
-type Nums = [1, 2, 3, 4, 5];
-type T = Tail<Nums>;
+function asEmail(s: string): Email {
+  if (!s.includes("@")) throw new Error("not an email");
+  return s as Email;
+}
+function sendTo(email: Email): void {
+  console.log(`sending to ${email}`);
+}
 
-// TODO: build const t: T = [2, 3, 4, 5] to prove it type-checks, then print t.join(" ")
-const t: T = [2, 3, 4, 5];
-console.log(t.join(' '));
+const readline = require("readline");
+const rl = readline.createInterface({ input: process.stdin });
+rl.on("line", (line: string) => {
+  try {
+    const email = asEmail(line);
+    sendTo(email);
+  } catch (e) {
+    console.log(`error: ${e.message}`);
+  }
+  rl.close();
+});
+rl.on("close", () => process.exit(0));
