@@ -1,24 +1,28 @@
-export {};
-
-type Email = string & { readonly __brand: "Email" };
-
-function asEmail(s: string): Email {
-  if (!s.includes("@")) throw new Error("not an email");
-  return s as Email;
+interface User {
+    name: string;
+    age: number;
 }
-function sendTo(email: Email): void {
-  console.log(`sending to ${email}`);
+
+function isUser(x: unknown): x is User {
+    return typeof x === 'object'
+        && x !== null 
+        && typeof (x as any).name === 'string'
+        && typeof (x as any).age  === 'number'
 }
 
 const readline = require("readline");
 const rl = readline.createInterface({ input: process.stdin });
 rl.on("line", (line: string) => {
-  try {
-    const email = asEmail(line);
-    sendTo(email);
-  } catch (e) {
-    console.log(`error: ${e.message}`);
-  }
-  rl.close();
+    try {
+        const parsed: unknown = JSON.parse(line);
+        if (isUser(parsed)) {
+            console.log(`user: ${parsed.name}, ${parsed.age}`);
+        } else {
+            console.log(`error: invalid user`);
+        }
+    } catch {
+        console.log(`error: invalid user`);
+    }
+    rl.close();
 });
 rl.on("close", () => process.exit(0));
